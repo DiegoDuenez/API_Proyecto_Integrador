@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //LOGIN
 Route::post('/login','ApiAuth\LoginController@login');
 Route::post('/registro','ApiAuth\RegistroController@registro');
-Route::delete('/logout','ApiAuth\LoginController@logout');
+Route::middleware('auth:sanctum')->delete('/logout','ApiAuth\LoginController@logout');
 
 
 //USUARIOS

@@ -33,10 +33,10 @@ class LoginController extends Controller
 
 
         }
-        if($user->rol == 'user'){ 
+        if($user->rol == 0){ 
                 $token = $user->createToken($request->email,['user:show','user:save','user:edit','user:delete'])->plainTextToken;
         }
-        if($user->rol == 'admin'){
+        if($user->rol == 1){
                 $token = $user->createToken($request->email,['admin:admin'])->plainTextToken;
         }
         return response()->json(['token'=>$token], 201);

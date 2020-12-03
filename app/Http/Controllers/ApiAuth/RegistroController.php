@@ -29,7 +29,7 @@ class RegistroController extends Controller
         $datos['name'] = $user->name = $request->name;
         $datos['email'] = $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->rol = 'user';
+        $user->rol = 0;
        // $datos['codigo'] = $user->codigo_act = Str::random(10);;
         
         if($user->save()){
